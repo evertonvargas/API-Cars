@@ -1,7 +1,7 @@
 import { Category } from './../model/Category';
-import { CategoryRepository } from '../repositories/CategoryRepository';
+import { ICategoryRepository } from '../repositories/ICategoryRepository';
 
-interface Icreate{
+interface IRequest{
   name: string;
   description: string;
 }
@@ -14,17 +14,16 @@ export class CreateCategoryService {
   //   this.categoryRepository = category;
   // }
 
-  constructor(private categoryRepository: CategoryRepository){}
+  constructor(private categoryRepository: ICategoryRepository){}
 
-  create({name, description}: Icreate): Category{
-    const AlredyExistsCategory = this.categoryRepository.findByName(name);
-
+  create({name, description}: IRequest): Category{
+    const AlredyExistsCategory = this.categoryRepository.findByname(name)
     if (AlredyExistsCategory) {
       throw new Error("Category Already Exists!")
       //return response.status(400).json({error: "Category Already Exists!"})
     }
 
-    return this.categoryRepository.create({ name, description });
+    return this.categoryRepository.create({name, description});
   }
 
 }

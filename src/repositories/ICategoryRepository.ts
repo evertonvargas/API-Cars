@@ -12,7 +12,7 @@ interface ICategoryRepository{
 
   findByname(name: string): Category;
   list(): Category[];
-  create({name, description}: ICreateCategoryDTO): void;
+  create({name, description}: ICreateCategoryDTO): Category;
 }
 
 export { ICategoryRepository, ICreateCategoryDTO}
