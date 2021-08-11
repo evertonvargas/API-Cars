@@ -7,11 +7,12 @@
     {
       "type": "node",
       "request": "attach",
-      "name": "Launch Program",
+      "protocol": "inspector",
+      "restart": true,
+      "name": "Debug",
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${file}",
       "outFiles": [
         "${workspaceFolder}/**/*.js"
       ]
