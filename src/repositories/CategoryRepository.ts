@@ -29,4 +29,9 @@ export class CategoryRepository {
     return this.categories;
   }
 
+  findByName(name: string):Category{
+    const category = this.categories.find(categorie => categorie.name === name)
+    return category;
+  }
+
 }
