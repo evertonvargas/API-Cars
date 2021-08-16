@@ -1,4 +1,4 @@
-import { Category } from './../model/Category';
+import { Category } from '../model/Category';
 import { ICategoryRepository } from '../repositories/ICategoryRepository';
 
 interface IRequest{
@@ -16,7 +16,7 @@ export class CreateCategoryService {
 
   constructor(private categoryRepository: ICategoryRepository){}
 
-  create({name, description}: IRequest): Category{
+  execute({name, description}: IRequest): Category{
     const AlredyExistsCategory = this.categoryRepository.findByname(name)
     if (AlredyExistsCategory) {
       throw new Error("Category Already Exists!")
