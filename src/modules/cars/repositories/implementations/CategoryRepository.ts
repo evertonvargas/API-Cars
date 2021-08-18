@@ -1,5 +1,5 @@
 import { Category } from '../../model/Category';
-import { ICategoryRepository, ICreateCategoryDTO } from './ICategoryRepository';
+import { ICategoryRepository, ICreateCategoryDTO } from '../ICategoryRepository';
 
 //singleton -> criar apenas uma instância e ela vai ser global
 export class CategoryRepository implements ICategoryRepository {
