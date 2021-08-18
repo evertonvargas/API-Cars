@@ -1,12 +1,22 @@
-import { Category } from '../model/Category';
+import { Category } from '../../model/Category';
 import { ICategoryRepository, ICreateCategoryDTO } from './ICategoryRepository';
 
+//singleton -> criar apenas uma instância e ela vai ser global
 export class CategoryRepository implements ICategoryRepository {
 
   private categories: Category[];
 
+  private static INSTANCE: CategoryRepository;
+
   constructor() {
     this.categories = [];
+  }
+
+  public static getInstance(): CategoryRepository{
+    if(!CategoryRepository.INSTANCE){
+      CategoryRepository.INSTANCE = new CategoryRepository();
+    }
+    return CategoryRepository.INSTANCE;
   }
 
   create({name, description}: ICreateCategoryDTO): Category {

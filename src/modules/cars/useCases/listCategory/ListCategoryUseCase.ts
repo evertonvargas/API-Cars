@@ -1,5 +1,5 @@
 import { Category } from './../../model/Category';
-import { ICategoryRepository } from "../../repositories/ICategoryRepository";
+import { ICategoryRepository } from "../../repositories/implementations/ICategoryRepository";
 
 
 export class ListCategoryUseCase{
@@ -7,6 +7,7 @@ export class ListCategoryUseCase{
   constructor(private categoriesRepository: ICategoryRepository){}
 
   execute(): Category[]{
-    return this.categoriesRepository.list();
+    const categories = this.categoriesRepository.list();
+    return categories;
   }
 }

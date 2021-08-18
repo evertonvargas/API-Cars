@@ -1,8 +1,8 @@
-import { CategoryRepository } from './../../repositories/CategoryRepository';
+import { CategoryRepository } from '../../repositories/implementations/CategoryRepository';
 import { ListCategoryCategoryController } from "./ListCategoryController";
 import { ListCategoryUseCase } from "./ListCategoryUseCase";
 
-const categoriesRepository = new CategoryRepository(); //pego tds os métodos q tenho disponível pra uso
+const categoriesRepository = CategoryRepository.getInstance(); //pego tds os métodos q tenho disponível pra uso
 
 const listCategoryUseCase = new ListCategoryUseCase(categoriesRepository); // faço um caso de uso
 
